@@ -1,0 +1,42 @@
+import sys
+from queue import deque
+
+def queue_push(q, value):
+    q.append(value)
+
+def queue_pop(q):
+    return q.popleft()
+
+def bfs(l, y, x,):
+    q = deque()
+    queue_push(q, [y, x])
+    while len(q) != 0:
+        front = queue_pop(q)
+        l[front[0]][front[1]] = 0
+        dy = [-1, 0, 1, 0]
+        dx = [0, 1, 0, -1]
+        for i in range(4):
+            ny = front[0] + dy[i]
+            nx = front[1] + dx[i]
+            if ny < 0 or ny >= len(l) or nx < 0 or nx >= len(l[0]):
+                continue
+            if l[ny][nx] != 1:
+                continue
+            queue_push(q, [ny, nx])
+
+    
+t = int(sys.stdin.readline())
+for tc in range(t):
+    m, n, k = list(map(int, sys.stdin.readline().split()))
+    l = [[0 for i in range(m)] for j in range(n)]
+    for i in range(k):
+        x, y = list(map(int, sys.stdin.readline().split()))
+        l[y][x] = 1
+    cnt = 0
+    for i in range(n):
+        for j in range(m):
+            if l[i][j] == 1:
+                cnt += 1
+                bfs(l, i, j)
+
+    print(cnt)
