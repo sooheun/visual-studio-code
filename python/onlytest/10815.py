@@ -10,7 +10,7 @@ result = []
 
 def check(i, sang_card):
     if i in sang_card:
-        return 1 
+        return 1
     else:
         return 0
 

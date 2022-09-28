@@ -7,7 +7,7 @@ def recursion(s,l,r): #ABBA 0 3
         return 0
     else:
         return recursion(s, l+1, r-1)
-        
+
 def isPalindrome(s):
     return recursion(s, 0, len(s)-1)
 
