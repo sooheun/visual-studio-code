@@ -6,7 +6,7 @@ list_s = [(sys.stdin.readline().strip()) for _ in range(n1)] # 5
 check_s = [(sys.stdin.readline().strip()) for _ in range(n2)] # 11
 
 list_s.sort()
-result = 0
+result = 0 
 
 def binary_search(array,target,start,end):
     while start <= end:
