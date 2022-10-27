@@ -1,0 +1,3 @@
+word = input("").split()
+
+answer =
